@@ -1,0 +1,16 @@
+{
+  "name": "my-bucket-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test test/**.test.js"
+  },
+  "author": "Vinicius",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless": "^3.38.0",
+    "serverless-offline": "^13.3.3"
+  }
+}

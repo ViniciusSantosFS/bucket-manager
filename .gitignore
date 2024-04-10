@@ -1,0 +1,5 @@
+.env
+node_modules
+jspm_packages
+.serverless
+volume
