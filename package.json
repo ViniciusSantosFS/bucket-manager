@@ -2,14 +2,18 @@
   "name": "my-bucket-manager",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "test": "node --test test/**.test.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:dev": "node --experimental-vm-modules --inspect=0.0.0.0  node_modules/jest/bin/jest.js --runInBand --watchAll"
   },
+  
   "author": "Vinicius",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^29.7.0",
     "serverless": "^3.38.0",
     "serverless-offline": "^13.3.3"
   }

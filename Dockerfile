@@ -6,10 +6,12 @@ WORKDIR /app
 
 COPY package*.json /app/
 
-USER root
 
 RUN npm ci --silent
 
 COPY . .
+
+RUN chown -R node /app
+USER node
 
 EXPOSE 3000

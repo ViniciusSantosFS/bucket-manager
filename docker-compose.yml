@@ -14,17 +14,14 @@ services:
 
   app:
     build: .
-    command: npm run start
+    command: npm run test
     volumes:
-      - .:/app/
-      - /usr/app/node_modules
+      - .:/app
     ports:
       - "3000:3000"
-      - "9229:9229"
     environment:
       - AWS_ACCESS_KEY_ID=test
       - AWS_SECRET_ACCESS_KEY=test
       - AWS_DEFAULT_REGION=us-east-1
     depends_on:
       - localstack
-    

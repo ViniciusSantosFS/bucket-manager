@@ -1,14 +1,20 @@
 {
+    "version": "0.2.0",
     "configurations": [
-        
-    {
-        "name": "Attach",
-        "port": 9229,
-        "request": "attach",
-        "skipFiles": [
-            "<node_internals>/**"
-        ],
-        "type": "node"
-    }
-    ]
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run test dev",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "test:dev"
+            ],
+            "skipFiles": [
+                "<node_internals>/**/**"
+            ],
+            "console": "integratedTerminal"
+        },
+    ],
+    "compounds": []
 }
