@@ -9,12 +9,14 @@
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:dev": "node --experimental-vm-modules --inspect=0.0.0.0  node_modules/jest/bin/jest.js --runInBand --watchAll"
   },
-  
   "author": "Vinicius",
   "license": "ISC",
   "devDependencies": {
     "jest": "^29.7.0",
     "serverless": "^3.38.0",
     "serverless-offline": "^13.3.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.554.0"
   }
 }
