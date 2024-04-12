@@ -3,6 +3,7 @@ version: "3.8"
 services:
   localstack:
     image: localstack/localstack
+    profiles: ["prod", "dev"]
     ports:
       - "4566:4566"            # LocalStack Gateway
     environment:
@@ -15,6 +16,7 @@ services:
   app:
     build: .
     command: npm run test
+    profiles: ["dev"]
     volumes:
       - .:/app
     ports:
