@@ -17,11 +17,27 @@ env:
   SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
 
 jobs:
-  test:
+  setup-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Build the stack
-        run: docker-compose --profile dev up
+        run: docker-compose --profile prod up -d
+      
+      - name: Create .env
+        uses: ozaytsev86/create-env-file@v1
+        with:
+          ENV_REGION: ${{ secrets.REGION }}
+          ENV_ENDPOINT: ${{ secrets.ENDPOINT }}
+          ENV_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          ENV_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+      
+      name: Run tests
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+        run: npm ci --silent
+        run: npm run test
+
       - name: Clean up
         run: docker-compose down --volumes
