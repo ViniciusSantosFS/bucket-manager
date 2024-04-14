@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node --env-file=.env src/index.js",
+    "start": "sls offline start",
     "test": "node --env-file=.env --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:dev": "node --env-file=.env --experimental-vm-modules --inspect=0.0.0.0  node_modules/jest/bin/jest.js --runInBand --watchAll"
   },
@@ -14,6 +14,7 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "serverless": "^3.38.0",
+    "serverless-dotenv-plugin": "^6.0.0",
     "serverless-offline": "^13.3.3"
   },
   "dependencies": {
