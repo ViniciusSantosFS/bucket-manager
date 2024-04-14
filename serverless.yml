@@ -1,6 +1,7 @@
 service: my-bucket-manager
 frameworkVersion: '3'
-
+	
+useDotenv: true
 provider:
   name: aws
   runtime: nodejs20.x
@@ -12,6 +13,12 @@ functions:
       - httpApi:
           path: /
           method: get
+environment:
+  ACCESS_KEY_ID: ${env:ACCESS_KEY_ID}
+  SECRET_ACCESS_KEY: ${env:SECRET_ACCESS_KEY}
+  REGION: ${env:REGION}
+  ENDPOINT: ${env:ENDPOINT}
 
 plugins:
+  - serverless-dotenv-plugin
   - serverless-offline
