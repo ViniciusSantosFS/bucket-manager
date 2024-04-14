@@ -32,7 +32,7 @@ jobs:
           ENV_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
           ENV_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
       
-      name: Run tests
+      - name: Run tests
         uses: actions/setup-node@v4
         with:
           node-version: 20
