@@ -10,11 +10,6 @@ on:
   pull_request:
     branches:
       - main
-env:
-  REGION: ${{ secrets.REGION }}
-  ENDPOINT: ${{ secrets.ENDPOINT }}
-  ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-  SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
 
 jobs:
   setup-tests:
