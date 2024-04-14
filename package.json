@@ -5,9 +5,9 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "test:dev": "node --experimental-vm-modules --inspect=0.0.0.0  node_modules/jest/bin/jest.js --runInBand --watchAll"
+    "start": "node --env-file=.env src/index.js",
+    "test": "node --env-file=.env --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:dev": "node --env-file=.env --experimental-vm-modules --inspect=0.0.0.0  node_modules/jest/bin/jest.js --runInBand --watchAll"
   },
   "author": "Vinicius",
   "license": "ISC",

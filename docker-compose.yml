@@ -4,9 +4,12 @@ services:
   localstack:
     image: localstack/localstack
     profiles: ["prod", "dev"]
+    networks:
+      - localstack-network
     ports:
       - "4566:4566"            # LocalStack Gateway
     environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
       # LocalStack configuration: https://docs.localstack.cloud/references/configuration/
       - SERVICES=s3,cloudwatch
     volumes:
@@ -19,11 +22,17 @@ services:
     profiles: ["dev"]
     volumes:
       - .:/app
+    networks:
+      - localstack-network
     ports:
       - "3000:3000"
     environment:
-      - AWS_ACCESS_KEY_ID=test
-      - AWS_SECRET_ACCESS_KEY=test
-      - AWS_DEFAULT_REGION=us-east-1
+      - ACCESS_KEY_ID=${ACCESS_KEY_ID}
+      - SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}
+      - REGION=${REGION}
+      - ENDPOINT=${ENDPOINT}
     depends_on:
       - localstack
+
+networks:
+  localstack-network:

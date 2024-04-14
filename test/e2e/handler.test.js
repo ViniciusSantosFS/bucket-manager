@@ -1,6 +1,7 @@
 import {describe, expect, it, beforeEach, afterEach} from '@jest/globals'
 import { CreateBucketCommand, PutObjectCommand, DeleteObjectsCommand, DeleteBucketCommand, S3Client } from "@aws-sdk/client-s3";
 import {handler} from '../../src/index'
+const {REGION, ENDPOINT, ACCESS_KEY_ID, SECRET_ACCESS_KEY} = process.env
 
 const setUpBucketsMock = async (s3Client, bucketName) => {
     const command = new CreateBucketCommand({ Bucket: bucketName });
@@ -34,11 +35,11 @@ const tearDownBucketsMock = async (s3Client, bucketName, Objects) => {
 describe('List buckets', () => {
     const bucketName = 'my-test-bucket'
     const s3 = new S3Client({ 
-        region: "us-east-1", 
-        endpoint: 'http://localhost.localstack.cloud:4566', 
+        region: REGION, 
+        endpoint: ENDPOINT, 
         credentials: {
-            accessKeyId: 'test',
-            secretAccessKey: 'test'
+            accessKeyId: ACCESS_KEY_ID,
+            secretAccessKey: SECRET_ACCESS_KEY
         },
         forcePathStyle: true
     });
