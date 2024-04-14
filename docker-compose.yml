@@ -4,8 +4,6 @@ services:
   localstack:
     image: localstack/localstack
     profiles: ["prod", "dev"]
-    networks:
-      - localstack-network
     ports:
       - "4566:4566"            # LocalStack Gateway
     environment:
@@ -22,8 +20,6 @@ services:
     profiles: ["dev"]
     volumes:
       - .:/app
-    networks:
-      - localstack-network
     ports:
       - "3000:3000"
     environment:
@@ -33,6 +29,3 @@ services:
       - ENDPOINT=${ENDPOINT}
     depends_on:
       - localstack
-
-networks:
-  localstack-network:
