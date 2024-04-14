@@ -36,8 +36,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-        run: npm ci --silent
-        run: npm run test
+      - run: npm ci --silent
+      - run: npm run test
 
       - name: Clean up
         run: docker-compose down --volumes
