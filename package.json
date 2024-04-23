@@ -19,8 +19,5 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.554.0"
-  },
-  "peerDependencies": {
-    "formidable": ">=3.2.4"
   }
 }
