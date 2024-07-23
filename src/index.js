@@ -13,6 +13,10 @@ const handler = async (event) => {
   const command = new ListBucketsCommand({})
   const buckets = await s3.send(command);
 
+  buckets.Buckets.filter(({Name}) => Name !== 'test')
+  buckets.Buckets.filter(({Name}) => Name !== 'test1')
+  buckets.Buckets.filter(({Name}) => Name !== 'test2')
+
   return {
     statusCode: 200,
     body: JSON.stringify(
