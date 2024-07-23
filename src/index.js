@@ -16,7 +16,8 @@ const handler = async (event) => {
   buckets.Buckets.filter(({Name}) => Name !== 'test')
   buckets.Buckets.filter(({Name}) => Name !== 'test1')
   buckets.Buckets.filter(({Name}) => Name !== 'test2')
-
+  return {statusCode: 200, body: 'hello world'}
+  
   return {
     statusCode: 200,
     body: JSON.stringify(
